@@ -15,6 +15,11 @@
 </thead>
 <tbody>
 	<?php 
+    if(!$codeshares)
+    {
+    	echo "No Codeshares";
+    }
+    else {
     foreach($codeshares as $codeshares){
     	$codeshare_details = SchedulesData::getScheduleDetailed($codeshares->schedid);
         ?>
@@ -28,6 +33,7 @@
     </tr>
         <?php
     	
+    }
     }
     ?></tbody>
     </table>
