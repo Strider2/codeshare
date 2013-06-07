@@ -2,7 +2,7 @@
 <h3>Codeshare Flights</h3>
 
 
-<table border="0">
+<table width="100%" border="0">
 <thead>
 	<tr>
     	<th>Flight Number</th>
@@ -24,7 +24,7 @@
         <td><?php echo $codeshare_details->arricao; ?></td>
         <td><img src="<?php echo SITE_URL;?>/lib/skins/skin_name/images/logos/<?php echo $codeshares->airline; ?>.png" alt="<?php echo $codeshares->airline; ?>" /></td>
         <td><span class="label label-info"><?php echo $codeshare_details->aircraft; ?></span></td>
-        <td><a class="btn" href="<?php echo SITE_URL ?>/index.php/schedules/details/<?php echo $codeshare_details->id; ?>" >Details</a></td>
+        <td><a href="<?php echo SITE_URL ?>/index.php/schedules/details/<?php echo $codeshare_details->id; ?>" >Details</a></td>
     </tr>
         <?php
     	
