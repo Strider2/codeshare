@@ -1,7 +1,12 @@
 
 <h3>Codeshare Flights</h3>
 
-
+<?php
+if(!$codeshares)
+    {
+    	echo '<span style="color:red;">No Codeshares</span>';
+    }
+    else {
 <table width="100%" border="0">
 <thead>
 	<tr>
@@ -15,11 +20,7 @@
 </thead>
 <tbody>
 	<?php 
-    if(!$codeshares)
-    {
-    	echo "No Codeshares";
-    }
-    else {
+    
     foreach($codeshares as $codeshares){
     	$codeshare_details = SchedulesData::getScheduleDetailed($codeshares->schedid);
         ?>
@@ -27,14 +28,16 @@
     	<td><?php echo $codeshare_details->code; ?><?php echo $codeshare_details->flightnum; ?></td>
         <td><?php echo $codeshare_details->depicao; ?></td>
         <td><?php echo $codeshare_details->arricao; ?></td>
-        <td><img src="<?php echo SITE_URL;?>/lib/skins/skin_name/images/logos/<?php echo $codeshares->airline; ?>.png" alt="<?php echo $codeshares->airline; ?>" /></td>
+        <td><img src="<?php echo SITE_URL;?>/lib/skins/j2b/images/logos/<?php echo $codeshares->airline; ?>.png" alt="<?php echo $codeshares->airline; ?>" /></td>
         <td><span class="label label-info"><?php echo $codeshare_details->aircraft; ?></span></td>
         <td><a href="<?php echo SITE_URL ?>/index.php/schedules/details/<?php echo $codeshare_details->id; ?>" >Details</a></td>
     </tr>
         <?php
     	
     }
-    }
+   
     ?></tbody>
     </table>
-
+<?php
+}
+?>
