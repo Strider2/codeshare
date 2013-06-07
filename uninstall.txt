@@ -1,0 +1,11 @@
+`phpvms_codeshares`*sql
+../admin/modules/CodeShare_admin/Codeshare_admin.php
+../admin/templates/codeshare/codeshare_edit_form.tpl
+../admin/templates/codeshare/codeshare_header.tpl
+../admin/templates/codeshare/codeshare_index.tpl
+../admin/templates/codeshare/codeshare_new_form.tpl
+../admin/templates/codeshare/sidebar_codeshare.tpl
+../admin/templates/codeshare/codeshares_codeshare.tpl
+../core/common/CodeShareData.class.php
+../core/modules/Codeshare/Credits.php
+../core/templates/Codeshare.tpl
