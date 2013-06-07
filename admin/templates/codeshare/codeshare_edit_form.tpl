@@ -18,7 +18,7 @@ $this->show('codeshare/codeshare_header.tpl');
             </tr>
             <tr>
                 <td>Airline</td>
-                <td><input type="text" name="airline"
+                <td><input type="text" maxlength="3" name="airline"
                            <?php echo 'value="'.$codeshare->airline.'"'; ?>
                            ></td>
             </tr>
