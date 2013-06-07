@@ -6,7 +6,7 @@ if(!$codeshares)
     {
     	echo '<span style="color:red;">No Codeshares</span>';
     }
-    else {
+    else {?>
 <table width="100%" border="0">
 <thead>
 	<tr>
