@@ -7,6 +7,7 @@ if(isset($codeshare))
 ?>
 
 <h4>Create New CodeShare</h4>
+<span style="color:red;">Note: You must have already added the flights into your main schedules table before you can add the codeshares into this module. As you need the schedid from the schedules for it to work.</span>
 <table width="80%">
         <form name="eventform" action="<?php echo SITE_URL; ?>/admin/index.php/codeshare_admin" method="post" enctype="multipart/form-data">
             <tr>
@@ -20,7 +21,7 @@ if(isset($codeshare))
             </tr>
             <tr>
                 <td>Airline</td>
-                <td><input type="text" name="airline"
+                <td><input type="text" maxlength="3" name="airline"
                            <?php
                                 if(isset($event))
                                 {echo 'value="'.$event['airline'].'"';}
