@@ -25,7 +25,7 @@ class CodeShareData extends CodonData
     }
    public function get_past_codeshare()
     {
-        $query = "SELECT * FROM phpvms_codeshare
+        $query = "SELECT * FROM phpvms_codeshares
                 ORDER BY schedid DESC";
 
         return DB::get_results($query);
