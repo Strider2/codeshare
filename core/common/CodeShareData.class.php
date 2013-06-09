@@ -30,7 +30,7 @@ class CodeShareData extends CodonData
 
         return DB::get_results($query);
     }
-    public function save_new_codeshare($schedid, $airline $image)
+    public function save_new_codeshare($schedid, $airline, $image)
     {
         $query = "INSERT INTO ".TABLE_PREFIX."codeshares (schedid, airline, image)
                 VALUES ('$schedid', '$airline', '$image')";
