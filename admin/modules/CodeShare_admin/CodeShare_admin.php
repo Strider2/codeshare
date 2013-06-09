@@ -47,6 +47,7 @@ class CodeShare_admin extends CodonModule
 
         $codeshare['schedid'] = DB::escape($this->post->schedid);
         $codeshare['airline'] = DB::escape($this->post->airline);
+		$codeshare['image'] = DB::escape($this->post->image);
 
   
 
@@ -62,7 +63,7 @@ class CodeShare_admin extends CodonModule
 
  
 
-        CodeShareData::save_new_codeshare($codeshare['schedid'], $codeshare['airline']);
+        CodeShareData::save_new_codeshare($codeshare['schedid'], $codeshare['airline'], $codeshare['image']);
                                    
 
        
@@ -84,11 +85,13 @@ class CodeShare_admin extends CodonModule
 
         $codeshare['schedid'] = DB::escape($this->post->schedid);
         $codeshare['airline'] = DB::escape($this->post->airline);
+		$codeshare['image'] = DB::escape($this->post->image);
 		$codeshare['id'] = DB::escape($this->post->id);
      
 
         CodeShareData::save_edit_codeshare($codeshare['schedid'], 
-										   $codeshare['airline'], 
+										   $codeshare['airline'],
+										   $codeshare['image'],
 										   $codeshare['id']);
 
         $id = $codeshare['id'];

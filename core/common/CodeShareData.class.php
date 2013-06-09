@@ -30,18 +30,19 @@ class CodeShareData extends CodonData
 
         return DB::get_results($query);
     }
-    public function save_new_codeshare($schedid, $airline)
+    public function save_new_codeshare($schedid, $airline $image)
     {
-        $query = "INSERT INTO ".TABLE_PREFIX."codeshares (schedid, airline)
-                VALUES ('$schedid', '$airline')";
+        $query = "INSERT INTO ".TABLE_PREFIX."codeshares (schedid, airline, image)
+                VALUES ('$schedid', '$airline', '$image')";
 
         DB::query($query);
     }
-     public function save_edit_codeshare($schedid, $airline, $id)
+     public function save_edit_codeshare($schedid, $airline, $image, $id)
     {
         $query = "UPDATE ".TABLE_PREFIX."codeshares SET
          schedid='$schedid',
-         airline='$airline'
+         airline='$airline',
+		 image='$image'
          WHERE id='$id'";
 
         DB::query($query);

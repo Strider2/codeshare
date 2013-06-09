@@ -28,7 +28,7 @@ if(!$codeshares)
     	<td><?php echo $codeshare_details->code; ?><?php echo $codeshare_details->flightnum; ?></td>
         <td><?php echo $codeshare_details->depicao; ?></td>
         <td><?php echo $codeshare_details->arricao; ?></td>
-        <td><img src="<?php echo SITE_URL;?>/lib/skins/j2b/images/logos/<?php echo $codeshares->airline; ?>.png" alt="<?php echo $codeshares->airline; ?>" /></td>
+        <td><img src="<?php echo SITE_URL;?>/lib/images/logos/<?php echo $codeshares->airline; ?>.png" alt="<?php echo $codeshares->airline; ?>" /></td>
         <td><span class="label label-info"><?php echo $codeshare_details->aircraft; ?></span></td>
         <td><a href="<?php echo SITE_URL ?>/index.php/schedules/details/<?php echo $codeshare_details->id; ?>" >Details</a></td>
     </tr>
@@ -41,3 +41,5 @@ if(!$codeshares)
 <?php
 }
 ?>
+<hr />
+&copy; Strider. Codeshare V1.1

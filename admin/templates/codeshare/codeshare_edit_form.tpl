@@ -22,7 +22,12 @@ $this->show('codeshare/codeshare_header.tpl');
                            <?php echo 'value="'.$codeshare->airline.'"'; ?>
                            ></td>
             </tr>
-            
+            <tr>
+                <td>Link To Airline logo (Optional)<br />ex: http://www.mysite.com/lib/images/logos/pic.png</td>
+                <td><input type="text" name="image"
+                           <?php echo 'value="'.$codeshare->image.'"'; ?>
+                           ></td>
+            </tr>
             <tr>
                 <td colspan="2">
                     <input type="hidden" name="id" value="<?php echo $codeshare->id; ?>" />

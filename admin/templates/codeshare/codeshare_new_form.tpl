@@ -27,6 +27,15 @@ if(isset($codeshare))
                                 {echo 'value="'.$event['airline'].'"';}
                            ?></td>
             </tr>
+            <tr>
+                <td>Link To Airline logo (Optional)<br />ex: http://www.mysite.com/lib/images/logos/pic.png</td>
+                <td><input type="text" name="image"
+                           <?php
+                                if(isset($event))
+                                {echo 'value="'.$event['image'].'"';}
+                           ?>
+                           ></td>
+            </tr>
             
             <tr>
                 <td colspan="2"><input type="hidden" name="action" value="save_new_codeshare" /><input type="submit" value="Save New Codeshare"></td>
