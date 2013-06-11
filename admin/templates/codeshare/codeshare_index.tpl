@@ -17,7 +17,7 @@ echo '<h4>Codeshares</h4><hr />';
     foreach($codeshare as $codeshare)
     {
         echo '<tr><td><a href="'.SITE_URL.'/admin/index.php/CodeShare_admin/get_codeshares?id='.$codeshare->id.'">'.$codeshare->schedid.'</a></td>';
-        echo '<td><img src="'.SITE_URL.'/lib/images/logos/'.$codeshare->airline.'.png" alt="'.$codeshare->airline.'" /></td></tr>';
+        echo '<td><img src="'.$codeshare->image.'" alt="'.$codeshare->airline.'" /></td></tr>';
     }
     
     echo '</table>';
