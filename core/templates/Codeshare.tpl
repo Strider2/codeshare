@@ -16,6 +16,7 @@ if(!$codeshares)
         <th>Airline</th>
         <th>Aircraft</th>
         <th>Details</th>
+        <th>Book</th>
     </tr>
 </thead>
 <tbody>
@@ -31,6 +32,46 @@ if(!$codeshares)
         <td><img src="<?php echo $codeshares->image; ?>" alt="<?php echo $codeshares->airline; ?>" /></td>
         <td><span class="label label-info"><?php echo $codeshare_details->aircraft; ?></span></td>
         <td><a href="<?php echo SITE_URL ?>/index.php/schedules/details/<?php echo $codeshare_details->id; ?>" >Details</a></td>
+        <td><?php
+    if(Auth::LoggedIn())
+    {?>
+		
+	<?php
+    }
+    else
+    {
+    	echo 'Login first!';
+     }
+     ?>	
+		<?php 
+		# Don't allow overlapping bids and a bid exists
+		if(Config::Get('DISABLE_SCHED_ON_BID') == true && $route->bidid != 0)
+		{
+		?>
+			<a id="<?php echo $codeshare_details->id; ?>" class="addbid" 
+                                        href="<?php echo url('/schedules/addbid');?>">Book Flight</a>
+		<?php
+		}
+		else
+		{
+			
+if(Auth::LoggedIn())
+{
+if($route->aircraftlevel > Auth::$userinfo->ranklevel)
+{
+?>
+<b><font color="#FF0000">Above your rank!</font></b>
+<?php
+}
+else
+{
+?><a id="<?php echo $codeshare_details->id; ?>" class="addbid" 
+                                        href="<?php echo url('/schedules/addbid');?>">Book Flight</a>
+                                        <?php
+                                        }
+                                        }
+                                        }
+                                        ?></td>
     </tr>
         <?php
     	
@@ -42,4 +83,4 @@ if(!$codeshares)
 }
 ?>
 <hr />
-&copy; Strider. Codeshare V1.1
+&copy; Strider. Codeshare V1.2
