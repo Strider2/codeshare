@@ -27,18 +27,27 @@ class CodeShareData extends CodonData
 
         return DB::get_results($query);
     }
+<<<<<<< HEAD
     public static function save_new_codeshare($schedid, $airline)
+=======
+    public function save_new_codeshare($schedid, $airline, $image)
+>>>>>>> origin/master
     {
-        $query = "INSERT INTO phpvms_codeshares (schedid, airline)
-                VALUES ('$schedid', '$airline')";
+        $query = "INSERT INTO phpvms_codeshares (schedid, airline, image)
+                VALUES ('$schedid', '$airline', '$image')";
 
         DB::query($query);
     }
+<<<<<<< HEAD
      public static function save_edit_codeshare($schedid, $airline, $id)
+=======
+     public function save_edit_codeshare($schedid, $airline, $image, $id)
+>>>>>>> origin/master
     {
         $query = "UPDATE phpvms_codeshares SET
          schedid='$schedid',
-         airline='$airline'
+         airline='$airline',
+         image= '$image',
          WHERE id='$id'";
 
         DB::query($query);
