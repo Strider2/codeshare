@@ -5,7 +5,7 @@ class Codeshare extends CodonModule
 	public function index()
 	{
 		$this->set('codeshares', CodeShareData::get_codeshare());
-		$this->render('Codeshare.tpl');
+		$this->render('Codeshare.php');
 	}
 	
 }

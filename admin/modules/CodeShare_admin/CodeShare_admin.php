@@ -5,7 +5,7 @@ class CodeShare_admin extends CodonModule
 {
     public function HTMLHead()
     {
-        $this->set('sidebar', 'codeshare/sidebar_codeshare.tpl');
+        $this->set('sidebar', 'codeshare/sidebar_codeshare.php');
     }
 
     public function NavBar()
@@ -27,7 +27,7 @@ class CodeShare_admin extends CodonModule
         {
             $this->set('codeshare', CodeShareData::get_upcoming_codeshares());
 			$this->set('history', CodeShareData::get_past_codeshare());
-            $this->show('codeshare/codeshare_index.tpl');
+            $this->show('codeshare/codeshare_index.php');
         }
     }
     public function get_codeshares()
@@ -35,11 +35,11 @@ class CodeShare_admin extends CodonModule
         $id = $_GET[id];
         $this->set('codeshare', CodeShareData::get_codeshares($id));
         
-        $this->show('codeshare/codeshares_codeshare.tpl');
+        $this->show('codeshare/codeshares_codeshare.php');
     }
     public function new_codeshare()
     {
-        $this->show('codeshare/codeshare_new_form.tpl');
+        $this->show('codeshare/codeshare_new_form.php');
     }
     protected function save_new_codeshare()
     {
@@ -56,7 +56,7 @@ class CodeShare_admin extends CodonModule
             if(empty($test))
             {
                 $this->set('codeshare', $codeshare);
-                $this->show('codeshare/codeshare_new_form.tpl');
+                $this->show('codeshare/codeshare_new_form.php');
                 return;
             }
         }
@@ -70,14 +70,14 @@ class CodeShare_admin extends CodonModule
 
         $this->set('codeshare', CodeShareData::get_upcoming_codeshares());
        
-        $this->show('codeshare/codeshare_index.tpl');
+        $this->show('codeshare/codeshare_index.php');
     }
     public function edit_codeshare() {
             $id = $_GET[id];
             $codeshare = array();
             $codeshare = CodeShareData::get_codeshares($id);
             $this->set('codeshare', $codeshare);
-            $this->show('codeshare/codeshare_edit_form.tpl');
+            $this->show('codeshare/codeshare_edit_form.php');
     }
     protected function save_edit_codeshare()
     {
@@ -97,7 +97,7 @@ class CodeShare_admin extends CodonModule
         $id = $codeshare['id'];
         $this->set('codeshare', CodeShareData::get_codeshares($id));
         
-        $this->show('codeshare/codeshares_codeshare.tpl');
+        $this->show('codeshare/codeshares_codeshare.php');
     }
  
     public function delete_codeshare()
@@ -106,6 +106,6 @@ class CodeShare_admin extends CodonModule
         CodeShareData::delete_codeshare($id);
 
         $this->set('codeshare', CodeShareData::get_upcoming_codeshares());
-        $this->show('codeshare/codeshare_index.tpl');
+        $this->show('codeshare/codeshare_index.php');
     }
 }
