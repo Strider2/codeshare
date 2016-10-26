@@ -1,6 +1,6 @@
 <?php
 
-$this->show('codeshare/codeshare_header.tpl');
+$this->show('codeshare/codeshare_header.php');
 
 if(isset($codeshare))
 {echo '<div id="error">All fields must be filled out</div>'; }
