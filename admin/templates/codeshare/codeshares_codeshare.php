@@ -1,6 +1,6 @@
 <?php
 
-$this->show('codeshare/codeshare_header.tpl');
+$this->show('codeshare/codeshare_header.php');
 echo '<h4>Airline Schedule ID:'.$codeshare->schedid.'</h4><hr />';
 
 
