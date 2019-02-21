@@ -1,5 +1,5 @@
 <?php
-$this->show('codeshare/codeshare_header.tpl');
+$this->show('codeshare/codeshare_header.php');
 
 echo 'Click On Codeshare For Details/Editing<hr />';
 
