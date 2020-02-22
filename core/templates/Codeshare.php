@@ -61,7 +61,7 @@ if(!$codeshares)
         <td><?php echo $codeshare_details->depicao; ?></td>
         <td><?php echo $codeshare_details->arricao; ?></td>
         <td><img src="<?php echo $codeshares->image; ?>" alt="<?php echo $codeshares->airline; ?>" /></td>
-        <td><?php echo $codeshare->airline;?><?php echo $codeshare->flightnum;?></td>
+        <td><?php echo $codeshares->airline;?><?php echo $codeshares->flightnum;?></td>
         <td><span class="label label-info"><?php echo $codeshare_details->aircraft; ?></span></td>
         <td><a href="<?php echo SITE_URL ?>/index.php/schedules/details/<?php echo $codeshare_details->id; ?>" >Details</a></td>
         <td><?php
