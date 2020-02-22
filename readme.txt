@@ -1,4 +1,4 @@
-Codeshare 1.2
+Codeshare 1.4
 
 phpVMS module to list codeshare flights in your VA.
 
