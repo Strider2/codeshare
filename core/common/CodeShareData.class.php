@@ -3,9 +3,9 @@
 class CodeShareData extends CodonData
 {
     public static function get_codeshare()
-    { 
+    {
 		return DB::get_results("SELECT * FROM ".TABLE_PREFIX."codeshares ORDER BY airline ASC");
-		
+
     }
  	public static function get_upcoming_codeshares()
     {
@@ -16,10 +16,11 @@ class CodeShareData extends CodonData
     }
     public static function get_codeshares($id)
     {
-        $query = "SELECT * FROM ".TABLE_PREFIX."codeshares WHERE id='$id'";
+        $query = "SELECT id FROM ".TABLE_PREFIX."codeshares WHERE id='$id'";
 
         return DB::get_row($query);
     }
+
    public static function get_past_codeshare()
     {
         $query = "SELECT * FROM ".TABLE_PREFIX."codeshare
@@ -27,10 +28,10 @@ class CodeShareData extends CodonData
 
         return DB::get_results($query);
     }
-    public static function save_new_codeshare($schedid, $airline)
+    public static function save_new_codeshare($schedid, $airline, $flightnum)
     {
-        $query = "INSERT INTO ".TABLE_PREFIX."codeshares (schedid, airline)
-                VALUES ('$schedid', '$airline')";
+        $query = "INSERT INTO ".TABLE_PREFIX."codeshares (schedid, airline, flightnum)
+                VALUES ('$schedid', '$airline', '$flightnum')";
 
         DB::query($query);
     }
@@ -43,7 +44,7 @@ class CodeShareData extends CodonData
 
         DB::query($query);
     }
-    
+
     public static function delete_codeshare($id)
     {
         $query = "DELETE FROM ".TABLE_PREFIX."codeshares
@@ -51,5 +52,5 @@ class CodeShareData extends CodonData
 
         DB::query($query);
     }
-   
+
 }

@@ -34,7 +34,7 @@ class CodeShare_admin extends CodonModule
     {
         $id = $_GET[id];
         $this->set('codeshare', CodeShareData::get_codeshares($id));
-        
+
         $this->show('codeshare/codeshares_codeshare.php');
     }
     public function new_codeshare()
@@ -47,9 +47,10 @@ class CodeShare_admin extends CodonModule
 
         $codeshare['schedid'] = DB::escape($this->post->schedid);
         $codeshare['airline'] = DB::escape($this->post->airline);
-		$codeshare['image'] = DB::escape($this->post->image);
+        $codeshare['flightnum'] = DB::escape($this->post->flightnum);
 
-  
+
+
 
         foreach($codeshare as $test)
         {
@@ -61,15 +62,15 @@ class CodeShare_admin extends CodonModule
             }
         }
 
- 
 
-        CodeShareData::save_new_codeshare($codeshare['schedid'], $codeshare['airline'], $codeshare['image']);
-                                   
 
-       
+        CodeShareData::save_new_codeshare($codeshare['schedid'], $codeshare['airline'], $codeshare['flightnum']);
+
+
+
 
         $this->set('codeshare', CodeShareData::get_upcoming_codeshares());
-       
+
         $this->show('codeshare/codeshare_index.php');
     }
     public function edit_codeshare() {
@@ -87,19 +88,19 @@ class CodeShare_admin extends CodonModule
         $codeshare['airline'] = DB::escape($this->post->airline);
 		$codeshare['image'] = DB::escape($this->post->image);
 		$codeshare['id'] = DB::escape($this->post->id);
-     
 
-        CodeShareData::save_edit_codeshare($codeshare['schedid'], 
+
+        CodeShareData::save_edit_codeshare($codeshare['schedid'],
 										   $codeshare['airline'],
 										   $codeshare['image'],
 										   $codeshare['id']);
 
         $id = $codeshare['id'];
         $this->set('codeshare', CodeShareData::get_codeshares($id));
-        
+
         $this->show('codeshare/codeshares_codeshare.php');
     }
- 
+
     public function delete_codeshare()
     {
         $id = $_GET[id];

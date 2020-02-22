@@ -5,7 +5,7 @@
             var url = this.href;
             // show a spinner or something via css
             var dialog = $('<div style="display:none" class="loading"></div>').appendTo('body');
-            
+
             // open the dialog
             dialog.dialog({
                 // add a close listener to prevent adding multiple divs to the document
@@ -17,7 +17,7 @@
             });
             // load remote content
             dialog.load(
-                url, 
+                url,
                 {}, // omit this param object to issue a GET request instead a POST request, otherwise you may provide post parameters within the object
                 function (responseText, textStatus, XMLHttpRequest) {
                     // remove the loading class
@@ -44,14 +44,15 @@ if(!$codeshares)
         <th>Departure</th>
         <th>Arrival</th>
         <th>Airline</th>
+        <th>Flight Number</th>
         <th>Aircraft</th>
         <th>Details</th>
         <th>Book</th>
     </tr>
 </thead>
 <tbody>
-	<?php 
-    
+	<?php
+
     foreach($codeshares as $codeshares){
     	$codeshare_details = SchedulesData::getScheduleDetailed($codeshares->schedid);
         ?>
@@ -60,31 +61,32 @@ if(!$codeshares)
         <td><?php echo $codeshare_details->depicao; ?></td>
         <td><?php echo $codeshare_details->arricao; ?></td>
         <td><img src="<?php echo $codeshares->image; ?>" alt="<?php echo $codeshares->airline; ?>" /></td>
+        <td><?php echo $codeshare->airline;?><?php echo $codeshare->flightnum;?></td>
         <td><span class="label label-info"><?php echo $codeshare_details->aircraft; ?></span></td>
         <td><a href="<?php echo SITE_URL ?>/index.php/schedules/details/<?php echo $codeshare_details->id; ?>" >Details</a></td>
         <td><?php
     if(Auth::LoggedIn())
     {?>
-		
+
 	<?php
     }
     else
     {
     	echo 'Login first!';
      }
-     ?>	
-		<?php 
+     ?>
+		<?php
 		# Don't allow overlapping bids and a bid exists
 		if(Config::Get('DISABLE_SCHED_ON_BID') == true && $route->bidid != 0)
 		{
 		?>
-			<a id="<?php echo $codeshare_details->id; ?>" class="addbid" 
+			<a id="<?php echo $codeshare_details->id; ?>" class="addbid"
                                         href="<?php echo url('/schedules/addbid');?>">Book Flight</a>
 		<?php
 		}
 		else
 		{
-			
+
 if(Auth::LoggedIn())
 {
 if($route->aircraftlevel > Auth::$userinfo->ranklevel)
@@ -95,7 +97,7 @@ if($route->aircraftlevel > Auth::$userinfo->ranklevel)
 }
 else
 {
-?><a id="<?php echo $codeshare_details->id; ?>" class="addbid" 
+?><a id="<?php echo $codeshare_details->id; ?>" class="addbid"
                                         href="<?php echo url('/schedules/addbid');?>">Book Flight</a>
                                         <?php
                                         }
@@ -104,13 +106,13 @@ else
                                         ?></td>
     </tr>
         <?php
-    	
+
     }
-   
+
     ?></tbody>
     </table>
 <?php
 }
 ?>
 <hr />
-&copy; Strider. Codeshare V1.3
+&copy; Strider. Codeshare V1.4

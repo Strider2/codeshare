@@ -1,6 +1,6 @@
 <?php
 
-$this->show('codeshare/codeshare_header.tpl');
+$this->show('codeshare/codeshare_header.php');
 
 if(isset($codeshare))
 {echo '<div id="error">All fields must be filled out</div>'; }
@@ -12,11 +12,12 @@ if(isset($codeshare))
         <form name="eventform" action="<?php echo SITE_URL; ?>/admin/index.php/codeshare_admin" method="post" enctype="multipart/form-data">
             <tr>
                 <td>Schedule ID</td>
-                <td><input type="text" name="schedid"
+                <td>  <input type="text" name="schedid"
                            <?php
                                 if(isset($event))
                                 {echo 'value="'.$event['schedid'].'"';}
                            ?>
+
                            </td>
             </tr>
             <tr>
@@ -28,18 +29,19 @@ if(isset($codeshare))
                            ?></td>
             </tr>
             <tr>
-                <td>Link To Airline logo (Optional)<br />ex: http://www.mysite.com/lib/images/logos/pic.png</td>
-                <td><input type="text" name="image"
-                           <?php
+                <td>Flight Number (Number only)</td>
+                <td><input type="text" name="flightnum"
+                            <?php
                                 if(isset($event))
-                                {echo 'value="'.$event['image'].'"';}
-                           ?>
-                           ></td>
-            </tr>
-            
+                                {
+                                  echo 'value="'.$event['flightnum'].'"';
+                                }?></td>
+                              </tr>
+            <tr>
+
+
             <tr>
                 <td colspan="2"><input type="hidden" name="action" value="save_new_codeshare" /><input type="submit" value="Save New Codeshare"></td>
             </tr>
         </form>
     </table>
-
