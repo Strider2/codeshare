@@ -60,7 +60,7 @@ if(!$codeshares)
     	<td><a class="ajax" href="<?php echo SITE_URL?>/action.php/schedules/details/<?php echo $codeshare_details->id;?>"><span class="btn"><?php echo $codeshare_details->code; ?><?php echo $codeshare_details->flightnum; ?></span></a></td>
         <td><?php echo $codeshare_details->depicao; ?></td>
         <td><?php echo $codeshare_details->arricao; ?></td>
-        <td><img src="<?php echo $codeshares->image; ?>" alt="<?php echo $codeshares->airline; ?>" /></td>
+        <td><img src="<?php echo SITE_URL?>/lib/skins/SKIN NAME HERE/images/logos/<?php echo $codeshares->airline;?>.png" alt="<?php echo $codeshares->airline; ?>" /></td>
         <td><?php echo $codeshares->airline;?><?php echo $codeshares->flightnum;?></td>
         <td><span class="label label-info"><?php echo $codeshare_details->aircraft; ?></span></td>
         <td><a href="<?php echo SITE_URL ?>/index.php/schedules/details/<?php echo $codeshare_details->id; ?>" >Details</a></td>
