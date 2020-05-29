@@ -39,6 +39,8 @@ class CodeShare_admin extends CodonModule
     }
     public function new_codeshare()
     {
+        $codeshares = CodeShareData::get_schedules();
+        $this->set('codeshares', $codeshares);
         $this->show('codeshare/codeshare_new_form.php');
     }
     protected function save_new_codeshare()

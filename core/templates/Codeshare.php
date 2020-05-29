@@ -115,4 +115,4 @@ else
 }
 ?>
 <hr />
-&copy; Strider. Codeshare V1.4
+&copy; Strider. Codeshare V1.5

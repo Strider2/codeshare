@@ -28,6 +28,13 @@ class CodeShareData extends CodonData
 
         return DB::get_results($query);
     }
+   public static function get_schedules()
+   {
+     $query = "SELECT * FROM ".TABLE_PREFIX."schedules
+             ORDER BY id ASC";
+
+     return DB::get_results($query);
+   }
     public static function save_new_codeshare($schedid, $airline, $flightnum)
     {
         $query = "INSERT INTO ".TABLE_PREFIX."codeshares (schedid, airline, flightnum)

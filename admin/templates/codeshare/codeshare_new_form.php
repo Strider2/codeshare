@@ -12,11 +12,19 @@ if(isset($codeshare))
         <form name="eventform" action="<?php echo SITE_URL; ?>/admin/index.php/codeshare_admin" method="post" enctype="multipart/form-data">
             <tr>
                 <td>Schedule ID</td>
-                <td>  <input type="text" name="schedid"
+                <td><select name="schedid" id="schedid">
+                  <?php
+              		foreach($codeshares as $schedule)
+              		{
+              			echo '<option value="'.$schedule->id.'">'.$schedule->code.' '.$schedule->flightnum.'</option>';
+              		}
+
+              		?>
+                   <!--<input type="text" name="schedid"
                            <?php
                                 if(isset($event))
                                 {echo 'value="'.$event['schedid'].'"';}
-                           ?>
+                           ?>-->
 
                            </td>
             </tr>
