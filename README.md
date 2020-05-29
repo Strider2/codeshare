@@ -10,17 +10,15 @@ Instructions on how to use this module:
 
 3) Insert all codeshare flights into your schedules.
 
-4) Get the schedid.
+4) Use the dropdown to select the flightnumber of the codeshare flight
 
-5) Put the schedid into the schedule ID box in the admin panel.
+5) Add the airline ICAO code into the airline box.
 
-6) Add the airline ICAO code into the airline box.
+6) To use the images create a folder within your lib/skins/skinname/images folder called logo's.
 
-7) To use the images create a folder within your lib/skins/skinname/images folder called logo's.
+7) Edit the codeshare.php file in your core/templates folder.
 
-8) Edit the codeshare.tpl file in your core/templates folder.
-
-9) Images should be 109x39px's and be named the same as the ICAO code of the airline in the db.
+8) Images should be 109x39px's and be named the same as the ICAO code of the airline in the db.
 
 
 Licence
