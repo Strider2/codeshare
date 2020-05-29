@@ -20,11 +20,7 @@ if(isset($codeshare))
               		}
 
               		?>
-                   <!--<input type="text" name="schedid"
-                           <?php
-                                if(isset($event))
-                                {echo 'value="'.$event['schedid'].'"';}
-                           ?>-->
+                
 
                            </td>
             </tr>
