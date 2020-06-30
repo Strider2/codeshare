@@ -1,6 +1,6 @@
 
 <h4>Codeshares</h4>
 
-version 1.5  -   by: Strider
+version 2  -   by: Strider
 
 <hr />

@@ -44,8 +44,8 @@ if(!$codeshares)
         <th>Departure</th>
         <th>Arrival</th>
         <th>Airline</th>
-        <th>Flight Number</th>
         <th>Aircraft</th>
+        <th>Codeshare Flight Number</th>
         <th>Details</th>
         <th>Book</th>
     </tr>
@@ -54,16 +54,18 @@ if(!$codeshares)
 	<?php
 
     foreach($codeshares as $codeshares){
-    	$codeshare_details = SchedulesData::getScheduleDetailed($codeshares->schedid);
+    	$aircraft = SchedulesData::getScheduleDetailed($codeshares->id);
+      $codeshare_details = CodeShareData::get_codeshare_airlines($codeshares->code);
+
         ?>
         <tr>
-    	<td><a class="ajax" href="<?php echo SITE_URL?>/action.php/schedules/details/<?php echo $codeshare_details->id;?>"><span class="btn"><?php echo $codeshare_details->code; ?><?php echo $codeshare_details->flightnum; ?></span></a></td>
-        <td><?php echo $codeshare_details->depicao; ?></td>
-        <td><?php echo $codeshare_details->arricao; ?></td>
-        <td><img src="<?php echo SITE_URL?>/lib/skins/SKIN NAME HERE/images/logos/<?php echo $codeshares->airline;?>.png" alt="<?php echo $codeshares->airline; ?>" /></td>
-        <td><?php echo $codeshares->airline;?><?php echo $codeshares->flightnum;?></td>
-        <td><span class="label label-info"><?php echo $codeshare_details->aircraft; ?></span></td>
-        <td><a href="<?php echo SITE_URL ?>/index.php/schedules/details/<?php echo $codeshare_details->id; ?>" >Details</a></td>
+    	<td><a class="ajax" href="<?php echo SITE_URL?>/action.php/schedules/details/<?php echo $codeshares->id;?>"><span class="btn"><?php echo $codeshares->code; ?><?php echo $codeshares->flightnum; ?></span></a></td>
+        <td><?php echo $codeshares->depicao; ?></td>
+        <td><?php echo $codeshares->arricao; ?></td>
+        <td><a href="<?php echo SITE_URL?>/index.php/Codeshare/airline_name/<?php echo $codeshares->code;?>"><img src="<?php echo SITE_URL?>/lib/skins/SKIN_NAME_HERE/images/logos/<?php echo $codeshares->code;?>.png" alt="<?php echo $codeshare_details->airname; ?>" /></a></td>
+        <td><span class="label label-info"><?php echo $aircraft->aircraft; ?></span></td>
+        <td><span class="label label-info"><?php echo $codeshares->codenum;?></span></td>
+        <td><a href="<?php echo SITE_URL ?>/index.php/schedules/details/<?php echo $codeshares->id; ?>" >Details</a></td>
         <td><?php
     if(Auth::LoggedIn())
     {?>
@@ -80,7 +82,7 @@ if(!$codeshares)
 		if(Config::Get('DISABLE_SCHED_ON_BID') == true && $route->bidid != 0)
 		{
 		?>
-			<a id="<?php echo $codeshare_details->id; ?>" class="addbid"
+			<a id="<?php echo $codeshares->id; ?>" class="addbid"
                                         href="<?php echo url('/schedules/addbid');?>">Book Flight</a>
 		<?php
 		}
@@ -97,7 +99,7 @@ if($route->aircraftlevel > Auth::$userinfo->ranklevel)
 }
 else
 {
-?><a id="<?php echo $codeshare_details->id; ?>" class="addbid"
+?><a id="<?php echo $codeshares->id; ?>" class="addbid"
                                         href="<?php echo url('/schedules/addbid');?>">Book Flight</a>
                                         <?php
                                         }
@@ -115,4 +117,4 @@ else
 }
 ?>
 <hr />
-&copy; Strider. Codeshare V1.5
+&copy; Strider. Codeshare V2
