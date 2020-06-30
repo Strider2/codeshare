@@ -65,7 +65,7 @@ if(isset($codeshare))
   </tr>
   <tr>
     <td valign="top"><strong>Departure Time:</strong> </td>
-    <td><input type="text" name="deptime"
+    <td><input type="time" name="deptime"
       <?php
         if(isset($event))
         {
@@ -79,7 +79,7 @@ if(isset($codeshare))
   </tr>
   <tr>
     <td valign="top"><strong>Arrival Time:</strong> </td>
-    <td><input type="text" name="arrtime"
+    <td><input type="time" name="arrtime"
         <?php
           if(isset($event))
           {
@@ -107,7 +107,7 @@ if(isset($codeshare))
   </tr>
   <tr>
     <td valign="top"><strong>Flight Time:</strong> </td>
-    <td><input type="text" name="flighttime"
+    <td><input type="time" name="flighttime"
         <?php
           if(isset($event))
           {
