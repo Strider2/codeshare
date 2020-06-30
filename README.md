@@ -4,21 +4,34 @@ Created by Daniel Counahan AKA Strider
 
 Instructions on how to use this module:
 =======================================
+
 1) Upload the files into their correct locations.
 
-2) In phpmyadmin import the phpvms_codeshares.sql file into your database where the main phpvms is located.
+2) In phpmyadmin import the codeshareairlines.sql file into your database where the main phpvms is located.
 
-3) Insert all codeshare flights into your schedules.
+3)You will need to add "codeshare and codenum to the schedules table also remove the constraints on the code, you can find this by going into the schedules table, going to structure and going into relation view, click on drop on the constraint on the code.Before doing that, take a back up of the schedules table to protect from any problems that might arise. I will not be held accountable for the schedule database being destroyed and unrecoverable.
 
-4) Use the dropdown to select the flightnumber of the codeshare flight
+4) Insert the airlines into the codeshaireairlines db using the add airline in the module
 
-5) Add the airline ICAO code into the airline box.
+5) Insert all codeshare flights into your schedules using the add codeshare form within the module admin side.
 
-6) To use the images create a folder within your lib/skins/skinname/images folder called logo's.
+6) Use the dropdown to select the airline of the codeshare flight and fill out t he rest of the form. By default it will set the schedule to run 7 days aa week. This will be updated in future updates.
 
-7) Edit the codeshare.php file in your core/templates folder.
+7) Add your airlines flight number designated for codeshare flights.
 
-8) Images should be 109x39px's and be named the same as the ICAO code of the airline in the db.
+8) To use the images create a folder within your lib/skins/skinname/images folder called logo's.
+
+9) You will need to edit the following files:
+replace all references to SKIN NAME HERE with the name of your skin in the following files:
+core/templates/codeshare/Codeshare.php
+core/templates/codeshare/airline/Airlines.php
+core/templates/codeshare/airline/Airlineview.php
+admin/templates/codeshare/codeshare_index.php
+admin/templates/codeshare/codeshares_codeshare.php
+admin/templates/codeshare/airline/airline_index.php
+admin/templates/codeshare/airline/airlines_airline.php
+
+10) Add the file logos with the logos in it to the images folder within the skin folder. (Images should be 109x39px)
 
 
 Licence
