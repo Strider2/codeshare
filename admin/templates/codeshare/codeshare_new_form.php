@@ -107,7 +107,7 @@ if(isset($codeshare))
   </tr>
   <tr>
     <td valign="top"><strong>Flight Time:</strong> </td>
-    <td><input type="time" name="flighttime"
+    <td><input type="text" name="flighttime"
         <?php
           if(isset($event))
           {
