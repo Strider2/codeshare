@@ -60,7 +60,7 @@ class CodeShareData extends CodonData
    }
     public static function save_new_codeshare($code, $flightnum, $depicao, $arricao, $deptime, $arrtime, $daysofweek, $distance, $flighttime, $aircraft, $flightlevel, $flighttype, $route, $price, $enabled, $codeshare, $codenum)
     {
-      $date = date("d.m.Y");
+      $date = date("Y.m.d");
 
       $query = "INSERT INTO ".TABLE_PREFIX."schedules (code, flightnum, depicao, arricao, deptime, arrtime, daysofweek, distance, flighttime, aircraft, flightlevel, flighttype, route, price, dateadded, enabled, codeshare, codenum)
               VALUES ('$code', '$flightnum', '$depicao', '$arricao', '$deptime', '$arrtime', '$daysofweek', '$distance', '$flighttime', '$aircraft', '$flightlevel', '$flighttype', '$route', '$price', '$date', '$enabled', '$codeshare', '$codenum')";
