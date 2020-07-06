@@ -43,6 +43,7 @@ class CodeShare_admin extends CodonModule
     {
         $id = $_GET[id];
         $this->set('codeshare', CodeShareData::get_codeshares($id));
+        $this->set('copyright', CodeShareData::getVersion());
         $this->set('allairports', OperationsData::GetAllAirports());
         $this->set('allaircraft', OperationsData::GetAllAircraft());
         $this->show('codeshare/codeshares_codeshare.php');
@@ -50,6 +51,7 @@ class CodeShare_admin extends CodonModule
     public function new_codeshare()
     {
         $codeshare = CodeShareData::get_schedules();
+        $this->set('copyright', CodeShareData::getVersion());
         $this->checkPermission(EDIT_SCHEDULES);
         $this->set('title', 'Add Codeshare');
         $this->set('action', 'save_new_codeshare');
@@ -284,6 +286,7 @@ class CodeShare_admin extends CodonModule
             $id = $_GET[id];
             $codeshare = array();
             $codeshare = CodeShareData::get_codeshares($id);
+            $this->set('copyright', CodeShareData::getVersion());
             $this->set('allairlines', CodeShareData::get_codeshare_airline());
             $this->set('codeshare', $codeshare);
             $this->show('codeshare/codeshare_edit_form.php');
@@ -379,13 +382,14 @@ class CodeShare_admin extends CodonModule
     public function new_codeshare_airline()
     {
         $this->set('airlines', $airlines);
+        $this->set('copyright', CodeShareData::getVersion());
         $this->show('codeshare/airline/airline_new_form.php');
     }
     public function get_codeshare_airlines()
     {
         $code = $_GET[code];
         $this->set('airlines', CodeShareData::get_codeshare_airlines($code));
-
+        $this->set('copyright', CodeShareData::getVersion());
         $this->show('codeshare/airline/airlines_airline.php');
     }
     public function save_new_codeshare_airline()
@@ -442,6 +446,7 @@ class CodeShare_admin extends CodonModule
             $aircode = $_GET[code];
             $airlines = array();
             $airlines = CodeShareData::get_codeshare_airlines($aircode);
+            $this->set('copyright', CodeShareData::getVersion());
             $this->set('airlines', $airlines);
             $this->show('codeshare/airline/airline_edit_form.php');
     }
