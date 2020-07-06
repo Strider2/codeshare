@@ -7,11 +7,11 @@ Instructions on how to use this module:
 
 1) Upload the files into their correct locations.
 
-2) In phpmyadmin import the codeshareairlines.sql file into your database where the main phpvms is located.
+2) In phpmyadmin import the phpvms_strider.sql file into your database where the main phpvms is located.
 
-3)You will need to add "codeshare and codenum to the schedules table also remove the constraints on the code, you can find this by going into the schedules table, going to structure and going into relation view, click on drop on the constraint on the code.Before doing that, take a back up of the schedules table to protect from any problems that might arise. I will not be held accountable for the schedule database being destroyed and unrecoverable.
+3)You will need to add "codeshare and codenum to the schedules table.
 
-4) Insert the airlines into the codeshaireairlines db using the add airline in the module
+4) Insert the airlines into the airlines db using the add airline in the module
 
 5) Insert all codeshare flights into your schedules using the add codeshare form within the module admin side.
 
@@ -32,6 +32,27 @@ admin/templates/codeshare/airline/airline_index.php
 admin/templates/codeshare/airline/airlines_airline.php
 
 10) Add the file logos with the logos in it to the images folder within the skin folder. (Images should be 109x39px)
+
+11)Add the following to the airlines table:
+codeshare tinyint(1) NULL
+airdesc varchar(350) NULL
+type varchar(1) NULL
+
+12)For your other airlines add a 0 to the codeshare column so the bellow code will work.
+
+Edit your registration main form and add the following to where it is looking for to choose an airline:
+<?php foreach($airline_list as $airline) {
+			if($airline->codeshare == "0"){
+			echo '<option value="'.$airline->code.'">'.$airline->code.' - '.$airline->name.'</option>';
+		}
+		
+		}?>
+I have included the form if you have not styled it. That code will make it so only your main airline/s are the ones that can be chosen to join as.
+
+13) Add the following columns to the schedules table:
+codeshare tinyint 1 NULL
+codenum varchar 10 NULL
+dateadded datetime NULL
 
 
 Licence
