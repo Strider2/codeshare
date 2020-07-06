@@ -2,32 +2,32 @@
 				<h4 >
 
 
-<?php echo $airlines->airname;?> information</h4>
+<?php echo $airlines->name;?> information</h4>
 
 <table width="100%" border="0">
 	<tr>
-	    <td><img src="<?php echo SITE_URL;?>/lib/skins/SKIN_NAME_HERE/images/logos/<?php echo $airlines->aircode;?>.png" alt="<?php echo $airlines->airname;?>"/></td>
+	    <td><img src="<?php echo SITE_URL;?>/lib/skins/iCrew/images/logos/<?php echo $airlines->code;?>.png" alt="<?php echo $airlines->name;?>"/></td>
 	</tr>
 <tr>
 	<td><strong>Airline Code:</strong></td>
-    <td><?php echo $airlines->aircode;?></td>
+    <td><?php echo $airlines->code;?></td>
 </tr>
 
 
 <tr>
 	<td><strong>Description:</strong></td>
 
-    <td><?php echo $airlines->airdesc;?></td>
+    <td><?php echo $airlines->desc;?></td>
 </tr>
 <tr>
 	<td>Airline Type</td>
-		<?php if($airlines->airtype == 'P')
+		<?php if($airlines->type == 'P')
 		{
-			echo '<td>'.$airlines->airtype.' - Passenger</td>';
+			echo '<td>'.$airlines->type.' - Passenger</td>';
 		}
 		else {
 
-			echo '<td>'.$airlines->airtype.' - Cargo</td>';
+			echo '<td>'.$airlines->type.' - Cargo</td>';
 
 		}?>
 
@@ -37,10 +37,10 @@
 <h3>Codeshare Flights</h3>
 
 <?php
-$codeshares = CodeShareStats::schedules($airlines->aircode);
+$codeshares = CodeShareStats::schedules($airlines->code);
 if(!$codeshares)
     {
-    	echo '<span style="color:red;">No Codeshare flights for '.$airlines->airname.'</span>';
+    	echo '<span style="color:red;">No Codeshare flights for '.$airlines->name.'</span>';
     }
     else {?>
 <table width="100%" border="0">
@@ -69,7 +69,7 @@ if(!$codeshares)
     	<td><?php echo $codeshare->code; ?><?php echo $codeshare->flightnum; ?></td>
         <td><?php echo $codeshare->depicao; ?></td>
         <td><?php echo $codeshare->arricao; ?></td>
-        <td><img src="<?php echo SITE_URL?>/lib/skins/iCrew/images/logos/<?php echo $codeshare->code;?>.png" alt="<?php echo $codeshare_details->airname; ?>" /></td>
+        <td><img src="<?php echo SITE_URL?>/lib/skins/iCrew/images/logos/<?php echo $codeshare->code;?>.png" alt="<?php echo $codeshare_details->name; ?>" /></td>
         <td><span class="label label-info"><?php echo $aircraft->aircraft; ?></span></td>
         <td><span class="label label-info"><?php echo $codeshare->codenum;?></span></td>
         <td><a href="<?php echo SITE_URL ?>/index.php/schedules/details/<?php echo $codeshare->id; ?>" >Details</a></td>
@@ -129,4 +129,14 @@ else
 <a href="<?php echo SITE_URL?>/index.php/Codeshare/Airline"><span class="btn">Back</span></a>
 
 <!--Do not remove the copyright -->
-<p>&copy; <?php echo date("Y");?> Strider Codeshare V2.</p>
+<p><?php if(!$copyright){
+echo '<span style="color:red;">Please put the strider table in your database as this is required.</span>';
+
+}
+
+else{
+  foreach($copyright as $copy){
+echo $copy->copyright .' '.date("Y").' '.$copy->name.' '.$copy->module.' '.$copy->version.'.';
+}
+}
+ ?></p>

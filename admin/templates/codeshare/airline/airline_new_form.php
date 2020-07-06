@@ -13,10 +13,10 @@ if(isset($airlines))
         <form name="eventform" action="<?php echo SITE_URL; ?>/admin/index.php/CodeShare_admin" method="post" enctype="multipart/form-data">
             <tr>
                 <td>Airline Name</td>
-                <td><input type="text" name="airname"
+                <td><input type="text" name="name"
                           <?php
                                 if(isset($event))
-                                {echo 'value="'.$event['airname'].'"';}
+                                {echo 'value="'.$event['name'].'"';}
                           ?>
 
 
@@ -24,15 +24,15 @@ if(isset($airlines))
             </tr>
             <tr>
                 <td>Airline Code</td>
-                <td><input type="text" maxlength="3" name="aircode"
+                <td><input type="text" maxlength="3" name="code"
                            <?php
                                 if(isset($event))
-                                {echo 'value="'.$event['aircode'].'"';}
+                                {echo 'value="'.$event['code'].'"';}
                            ?></td>
             </tr>
             <tr>
                 <td>Airline Type</td>
-                <td><select name="airtype" id="airtype">
+                <td><select name="type" id="type">
                         <option value="P">Passenger</option>
                         <option value="C">Cargo</option></td>
             </tr>
@@ -46,8 +46,16 @@ if(isset($airlines))
 
 
 </tr>
+<tr>
+    <td> Enable</td>
+    <td><select name="enabled" id="enabled">
+      <option value="1" selected>Yes</option>
+      <option value="0">No</option></td>
+    </tr>
             <tr>
-                <td colspan="2"><input type="hidden" name="action" value="save_new_codeshare_airline" />
+                <td colspan="2">
+                  <input type="hidden" name="codeshare" value="1"/>
+                  <input type="hidden" name="action" value="save_new_codeshare_airline" />
                   <input type="submit" value="Save New Codeshare Airline"></td>
             </tr>
         </form>

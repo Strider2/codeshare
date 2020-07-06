@@ -20,8 +20,8 @@ $flighttypes = Config::Get('FLIGHT_TYPES');
                   <?php
 
                   foreach($airlines as $airline) {
-                          $sel = ($airline->aircode == $codeshare->aircode) ? 'selected' : '';
-                    echo '<option value="'.$airline->aircode.'" '.$sel.'>'.$airline->aircode.' - '.$airline->airname.'</option>';
+                          $sel = ($airline->aircode == $codeshare->code) ? 'selected' : '';
+                    echo '<option value="'.$airline->code.'" '.$sel.'>'.$airline->code.' - '.$airline->name.'</option>';
                   }
                   ?>
 

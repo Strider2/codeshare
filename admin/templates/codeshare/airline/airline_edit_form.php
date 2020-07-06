@@ -12,14 +12,14 @@ $this->show('codeshare/codeshare_header.php');
 
             <tr>
                 <td>Airline Name</td>
-                <td><input type="text" name="airname"
-                           <?php echo 'value="'.$airlines->airname.'"'; ?>
+                <td><input type="text" name="name"
+                           <?php echo 'value="'.$airlines->name.'"'; ?>
                            ></td>
             </tr>
             <tr>
                 <td>Airline code</td>
-                <td><input type="text" maxlength="3" name="aircode"
-                           <?php echo 'value="'.$airlines->aircode.'"'; ?>
+                <td><input type="text" maxlength="3" name="code"
+                           <?php echo 'value="'.$airlines->code.'"'; ?>
                            ></td>
             </tr>
             <tr>
@@ -32,13 +32,13 @@ $this->show('codeshare/codeshare_header.php');
                               </tr>
             <tr>
                 <td>Airline type</td>
-                <td><select name="airtype" id="airtype">
+                <td><select name="type" id="type">
                       <option value="P">Passenger</option>
                       <option value="C">Cargo</option></td>
             </tr>
             <tr>
                 <td colspan="2">
-                    <input type="hidden" name="aircode" value="<?php echo $airlines->aircode; ?>" />
+                    <input type="hidden" name="code" value="<?php echo $airlines->code; ?>" />
                     <input type="hidden" name="action" value="save_edit_codeshare_airline" />
                     <input type="submit" value="Edit Codeshare"></td>
             </tr>

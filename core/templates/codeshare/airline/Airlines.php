@@ -1,4 +1,6 @@
-
+<?php
+$copy = CodeShareData::getVersion();
+ ?>
 <h3>Codeshare Airlines</h3>
 
 <?php
@@ -23,20 +25,20 @@ if(!$airlines)
 
         ?>
         <tr>
-    	<td><?php echo $airline->aircode; ?> - <?php echo $airline->airname; ?></td>
-        <td><img src="<?php echo SITE_URL?>/lib/skins/iCrew/images/logos/<?php echo $airline->aircode; ?>.png" alt="<?php echo $airline->airname;?>"/></td>
+    	<td><?php echo $airline->code; ?> - <?php echo $airline->name; ?></td>
+        <td><img src="<?php echo SITE_URL?>/lib/skins/SKIN_NAME_HERE/images/logos/<?php echo $airline->code; ?>.png" alt="<?php echo $airline->name;?>"/></td>
         <?php
-          if($airline->airtype == 'P')
+          if($airline->type == 'P')
           {
-            echo '<td>'.$airline->airtype.' - Passenger</td>';
+            echo '<td>'.$airline->type.' - Passenger</td>';
           }
           else
           {
-            echo '<td>'.$airline->airtype.' - Cargo</td>';
+            echo '<td>'.$airline->type.' - Cargo</td>';
           }
          ?>
 
-        <td><a href="<?php echo SITE_URL?>/index.php/codeshare/airline_name/<?php echo $airline->aircode;?>">Details</a></td>
+        <td><a href="<?php echo SITE_URL?>/index.php/codeshare/airline_name/<?php echo $airline->code;?>">Details</a></td>
 </tr>
         <?php
 
@@ -48,4 +50,15 @@ if(!$airlines)
 }
 ?>
 <hr />
-&copy; Strider. Codeshare V2
+<?php
+if(!$copyright){
+echo '<span style="color:red;">Please put the strider table in your database as this is required.</span>';
+
+}
+
+else{
+  foreach($copyright as $copy){
+echo $copy->copyright .' '.date("Y").' '.$copy->name.' '.$copy->module.' '.$copy->version.'.';
+}
+}
+ ?>

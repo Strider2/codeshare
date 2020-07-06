@@ -35,7 +35,7 @@ class CodeShare_admin extends CodonModule
         {
             $this->set('codeshare', CodeShareData::get_codeshare());
 			      $this->set('history', CodeShareData::get_past_codeshare());
-
+            $this->set('copyright', CodeShareData::getVersion());
             $this->show('codeshare/codeshare_index.php');
         }
     }
@@ -372,6 +372,7 @@ class CodeShare_admin extends CodonModule
         {
             $this->set('airlines', CodeShareData::get_upcoming_codeshare_airlines());
             $this->set('history', CodeShareData::get_past_codeshare());
+            $this->set('copyright', CodeShareData::getVersion());
             $this->show('codeshare/airline/airline_index.php');
         }
     }
@@ -382,19 +383,22 @@ class CodeShare_admin extends CodonModule
     }
     public function get_codeshare_airlines()
     {
-        $aircode = $_GET[aircode];
-        $this->set('airlines', CodeShareData::get_codeshare_airlines($aircode));
+        $code = $_GET[code];
+        $this->set('airlines', CodeShareData::get_codeshare_airlines($code));
 
         $this->show('codeshare/airline/airlines_airline.php');
     }
     public function save_new_codeshare_airline()
     {
+      $this->checkPermission(EDIT_AIRLINES);
       $airlines = array();
 
-      $airlines['airname'] = DB::escape($this->post->airname);
-      $airlines['aircode'] = DB::escape($this->post->aircode);
+      $airlines['code'] = DB::escape($this->post->code);
+      $airlines['name'] = DB::escape($this->post->name);
+      $airlines['codeshare'] = DB::escape($this->post->codeshare);
       $airlines['airdesc'] = DB::escape($this->post->airdesc);
-      $airlines['airtype'] = DB::escape($this->post->airtype);
+      $airlines['type'] = DB::escape($this->post->type);
+      $airlines['enabled'] = DB::escape($this->post->enabled);
 
 
 
@@ -411,17 +415,31 @@ class CodeShare_admin extends CodonModule
 
 
 
-      CodeShareData::add_codeshare_airline($airlines['airname'], $airlines['aircode'], $airlines['airdesc'], $airlines['airtype']);
+      $ret = CodeShareData::save_codeshare_airline($airlines['code'], $airlines['name'],
+                      $airlines['codeshare'],
+                      $airlines['airdesc'],
+                      $airlines['type'],
+                      $airlines['enabled']);
 
+                      if (DB::errno() != 0 && $ret == false) {
+                          $this->set('message',
+                              'There was an error adding the Codeshare Airline, already exists DB error: ' . DB::error
+                              ());
+                          $this->render('core_error.php');
+                          return;
+                      }
 
+                      $this->set('message', 'The codeshare airline "' . $this->post->code .' - '. $this->post->name .
+                          '" has been added');
+                      $this->render('core_success.php');
 
-
+      LogData::addLog(Auth::$userinfo->pilotid, 'Added a codeshare airline "' . $this->post->code . ' - '.$this->post->name . '"');
       $this->set('airlines', CodeShareData::get_upcoming_codeshare_airlines());
 
       $this->show('codeshare/airline/airline_index.php');
     }
     public function edit_codeshare_airline() {
-            $aircode = $_GET[aircode];
+            $aircode = $_GET[code];
             $airlines = array();
             $airlines = CodeShareData::get_codeshare_airlines($aircode);
             $this->set('airlines', $airlines);
@@ -431,26 +449,31 @@ class CodeShare_admin extends CodonModule
     {
         $airlines = array();
 
-        $airlines['airname'] = DB::escape($this->post->airname);
-        $airlines['aircode'] = DB::escape($this->post->aircode);
+
+        $airlines['code'] = DB::escape($this->post->code);
+        $airlines['name'] = DB::escape($this->post->name);
+        $airlines['codeshare'] = DB::escape($this->post->codeshare)
         $airlines['airdesc'] = DB::escape($this->post->airdesc);
-        $airlines['airtype'] = DB::escape($this->post->airtype);
+        $airlines['type'] = DB::escape($this->post->type);
+        $airlines['enabled'] = DB::escape($this->post->enabled);
 
 
 
-        CodeShareData::save_edit_codeshare_airline($airlines['airname'],
-                       $airlines['aircode'],
+        CodeShareData::save_edit_codeshare_airline($airlines['code'],
+                       $airlines['name'],
+                       $airlines['codeshare'],
                        $airlines['airdesc'],
-                       $airlines['airtype']);
+                       $airlines['type'],
+                       $airlines['enabled']);
 
-        $aircode = $airlines['aircode'];
+        $aircode = $airlines['code'];
         $this->set('airlines', CodeShareData::get_codeshare_airlines($aircode));
 
         $this->show('codeshare/airline/airlines_airline.php');
     }
     public function delete_codeshare_airline()
     {
-        $airid = $_GET[airid];
+        $airid = $_GET[id];
         CodeShareData::delete_codeshare_airline($airid);
 
         $this->set('codeshare', CodeShareData::get_upcoming_codeshares());

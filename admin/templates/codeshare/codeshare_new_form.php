@@ -20,8 +20,8 @@ if(isset($codeshare))
       <?php
 
       foreach($airlines as $airline) {
-              $sel = ($airline->aircode == $codeshare->aircode) ? 'selected' : '';
-        echo '<option value="'.$airline->aircode.'" '.$sel.'>'.$airline->aircode.' - '.$airline->airname.'</option>';
+              $sel = ($airline->code == $codeshare->code) ? 'selected' : '';
+        echo '<option value="'.$airline->code.'" '.$sel.'>'.$airline->code.' - '.$airline->name.'</option>';
       }
       ?>
       </select>
