@@ -1,10 +1,4 @@
-<?php
-//Includes
-$aircraft = SchedulesData::getScheduleDetailed($codeshares->id);
-$codeshare_details = CodeShareData::getCodeshareAirlines($codeshares->code);
 
-
- ?>
 <h3>Codeshare Flights</h3>
 
 <?php
@@ -30,7 +24,8 @@ if(!$codeshares)
 	<?php
 
     foreach($codeshares as $codeshares){
-
+      $aircraft = SchedulesData::getScheduleDetailed($codeshares->id);
+      $codeshare_details = CodeShareData::getCodeshareAirlines($codeshares->code);
 
         ?>
         <tr>
