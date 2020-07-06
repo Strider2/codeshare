@@ -452,7 +452,7 @@ class CodeShare_admin extends CodonModule
 
         $airlines['code'] = DB::escape($this->post->code);
         $airlines['name'] = DB::escape($this->post->name);
-        $airlines['codeshare'] = DB::escape($this->post->codeshare)
+        $airlines['codeshare'] = DB::escape($this->post->codeshare);
         $airlines['airdesc'] = DB::escape($this->post->airdesc);
         $airlines['type'] = DB::escape($this->post->type);
         $airlines['enabled'] = DB::escape($this->post->enabled);
