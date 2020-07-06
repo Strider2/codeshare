@@ -41,12 +41,12 @@ type varchar(1) NULL
 12)For your other airlines add a 0 to the codeshare column so the bellow code will work.
 
 Edit your registration main form and add the following to where it is looking for to choose an airline:
-<?php foreach($airline_list as $airline) {
-			if($airline->codeshare == "0"){
-			echo '<option value="'.$airline->code.'">'.$airline->code.' - '.$airline->name.'</option>';
-		}
-		
-		}?>
+	<?php foreach($airline_list as $airline) {
+				if($airline->codeshare == "0"){
+				echo '<option value="'.$airline->code.'">'.$airline->code.' - '.$airline->name.'</option>';
+			}
+
+			}?>
 I have included the form if you have not styled it. That code will make it so only your main airline/s are the ones that can be chosen to join as.
 
 13) Add the following columns to the schedules table:
