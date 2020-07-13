@@ -1,25 +1,29 @@
 
 <h3>Codeshare Flights</h3>
 
+
+        <table id="codeshare" class="table table-vcenter table-condensed table-bordered">
+          <thead>
+          	<tr>
+              	<th>Flight Number</th>
+                  <th>Departure</th>
+                  <th>Arrival</th>
+                  <th>Airline</th>
+                  <th>Aircraft</th>
+                  <th>Codeshare Flight Number</th>
+                  <th>Details</th>
+                  <th>Book</th>
+              </tr>
+          </thead>
+
 <?php
 if(!$codeshares)
     {
     	echo '<span style="color:red;">No Codeshares</span>';
     }
     else {?>
-<table width="100%" border="0">
-<thead>
-	<tr>
-    	<th>Flight Number</th>
-        <th>Departure</th>
-        <th>Arrival</th>
-        <th>Airline</th>
-        <th>Aircraft</th>
-        <th>Codeshare Flight Number</th>
-        <th>Details</th>
-        <th>Book</th>
-    </tr>
-</thead>
+
+
 <tbody>
 	<?php
 

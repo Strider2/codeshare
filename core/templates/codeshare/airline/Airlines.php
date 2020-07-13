@@ -49,6 +49,7 @@ if(!$airlines)
 <?php
 }
 ?>
+<p><a href="<?php echo SITE_URL?>/index.php/Codeshare">Go back to the codeshare flights.</a></p>
 <hr />
 <?php
 if(!$copyright){

@@ -23,6 +23,8 @@ $this->show('codeshare/codeshare_header.php');
                            ></td>
             </tr>
             <tr>
+
+            <tr>
                 <td>Airline Description</td>
                 <td><input type="text" name="airdesc"
                             <?php
@@ -37,8 +39,15 @@ $this->show('codeshare/codeshare_header.php');
                       <option value="C">Cargo</option></td>
             </tr>
             <tr>
+                <td>Enabled</td>
+                <td><select name="enabled" id="enabled">
+                        <option value="1" selected>Yes</option>
+                        <option value="0">No</option></td>
+            </tr>
+            <tr>
                 <td colspan="2">
                     <input type="hidden" name="code" value="<?php echo $airlines->code; ?>" />
+                    <input type="hidden" name="codeshare" value="1"/>
                     <input type="hidden" name="action" value="save_edit_codeshare_airline" />
                     <input type="submit" value="Edit Codeshare"></td>
             </tr>

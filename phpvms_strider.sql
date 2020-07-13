@@ -9,7 +9,7 @@ CREATE TABLE `phpvms_strider` (
 
 
 INSERT INTO `phpvms_strider` (`id`, `copyright`, `name`, `module`, `version`) VALUES
-(1, '&copy;', 'Strider', 'Codeshare', 'v2.1');
+(1, '&copy;', 'Strider', 'Codeshare', 'v2.2');
 
 
 ALTER TABLE `phpvms_strider`

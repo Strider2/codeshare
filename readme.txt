@@ -1,4 +1,6 @@
-Codeshare 2
+Codeshare 2.2
+
+This adds the ability for you to navigate back to the codeshare flights from the codeshare airline list and airline view.
 
 phpVMS module to list codeshare flights in your VA.
 
@@ -39,6 +41,8 @@ Edit your registration main form and add the following to where it is looking fo
 I have included the form if you have not styled it. That code will make it so only your main airline/s are the ones that can be chosen to join as.
 
 Import the phpvms_strider.sql file as it is required to maintain the copyright on this module.
+
+If you have already imported the above SQL from V2.1 please import the file update_strider.sql file. It will update the copyright to show the correct version.
 
 Released under the following license:
 Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported License
