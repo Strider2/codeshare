@@ -332,6 +332,6 @@ class CodeShareData extends CodonData
        ///////////////////////////////
        public static function getVersion()
        {
-         return DB::get_results("SELECT * FROM ".TABLE_PREFIX."strider ORDER by id ASC");
+         return DB::get_results("SELECT * FROM ".TABLE_PREFIX."strider WHERE id = 1");
        }
 }
