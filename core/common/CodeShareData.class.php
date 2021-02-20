@@ -279,17 +279,17 @@ class CodeShareData extends CodonData
     {
       return DB::get_results("SELECT * FROM ".TABLE_PREFIX."airlines WHERE codeshare=1 ORDER BY name ASC");
     }
-    public static function get_codeshare_airlines($code)
+    public static function get_codeshare_airlines($id)
     {
       $query = "SELECT * FROM ".TABLE_PREFIX."airlines
-          WHERE codeshare ='$code'";
+          WHERE id ='$id'";
 
       return DB::get_row($query);
     }
-    public static function getCodeshareAirlines($code)
+    public static function getCodeshareAirlines($id)
     {
       $query = "SELECT * FROM ".TABLE_PREFIX."airlines
-          WHERE code ='$code'";
+          WHERE id ='$id'";
 
       return DB::get_row($query);
     }
