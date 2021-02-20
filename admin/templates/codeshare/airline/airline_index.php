@@ -16,7 +16,7 @@ echo '<h4>Airlines</h4><hr />';
 
     foreach($airlines as $airline)
     {
-        echo '<tr><td><a href="'.SITE_URL.'/admin/index.php/CodeShare_admin/get_codeshare_airlines?code='.$airline->code.'">'.$airline->name.'</a></td>';
+        echo '<tr><td><a href="'.SITE_URL.'/admin/index.php/CodeShare_admin/get_codeshare_airlines?id='.$airline->id.'">'.$airline->name.'</a></td>';
         echo '<td>'.$airline->code.'</td></tr>';
           echo '<td><img src="'.SITE_URL.'/lib/skins/SKIN_NAME_HERE/images/logos/'.$airline->code.'.png" alt="'.$airline->name.'" /></td>';
     }
