@@ -1,1 +1,1 @@
-UPDATE `phpvms_strider` SET `version`='V2.2' WHERE 1;
+UPDATE `phpvms_strider` SET `version`='V2.3' WHERE 1;
