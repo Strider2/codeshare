@@ -387,8 +387,8 @@ class CodeShare_admin extends CodonModule
     }
     public function get_codeshare_airlines()
     {
-        $code = $_GET[code];
-        $this->set('airlines', CodeShareData::get_codeshare_airlines($code));
+        $id = $_GET[id];
+        $this->set('airlines', CodeShareData::get_codeshare_airlines($id));
         $this->set('copyright', CodeShareData::getVersion());
         $this->show('codeshare/airline/airlines_airline.php');
     }
