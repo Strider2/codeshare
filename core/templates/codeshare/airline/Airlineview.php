@@ -17,7 +17,7 @@
 <tr>
 	<td><strong>Description:</strong></td>
 
-    <td><?php echo $airlines->desc;?></td>
+    <td><?php echo $airlines->airdesc;?></td>
 </tr>
 <tr>
 	<td>Airline Type</td>
